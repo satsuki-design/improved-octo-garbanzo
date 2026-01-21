@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="高品質なWebデザインを提供するポートフォリオサイト。">
+    <title>Aura Design | Web Designer Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="bg-gradient-orb orb-1"></div>
+    <div class="bg-gradient-orb orb-2"></div>
+
+    <header id="header">
+        <div class="container">
+            <div class="logo">Aura <span>Design</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#about" data-i18n="nav_about">About</a></li>
+                    <li><a href="#works" data-i18n="nav_works">Works</a></li>
+                    <li><a href="#services" data-i18n="nav_services">Services</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                    <li class="lang-switch">
+                        <span id="lang-jp" class="active">JP</span> / <span id="lang-en">EN</span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-visual"></div>
+        <div class="hero-content container">
+            <h1>
+                <div class="reveal-text"><span style="animation-delay: 0.1s;" data-i18n="hero_title_1">Designing
+                        the</span></div><br>
+                <b>
+                    <div class="reveal-text"><span style="animation-delay: 0.3s;" data-i18n="hero_title_2">Digital
+                            Future</span></div>
+                </b>
+            </h1>
+            <p style="opacity: 0; animation: fadeUp 1s 0.8s forwards;" data-i18n="hero_desc">
+                美しさと機能性を融合させた、唯一無二のWeb体験を創造します。<br>
+                あなたのブランドを次のレベルへ。
+            </p>
+            <div style="opacity: 0; animation: fadeUp 1s 1s forwards;">
+                <a href="#works" class="btn btn-primary" data-i18n="hero_cta">View Works</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container" style="padding: 10rem 0; display: flex; align-items: center; gap: 4rem;">
+        <div style="flex: 1;">
+            <h2 class="section-title" data-i18n="about_title">About Me</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;" data-i18n="about_desc">
+                東京を拠点に活動するフリーランスWebデザイナー。<br>
+                5年以上の経験を持ち、スタートアップから大手企業まで幅広いクライアントのデジタルプロダクトを手掛けてきました。<br><br>
+                「ただ美しいだけでなく、ビジネスの課題を解決するデザイン」をモットーに、UI/UX設計から実装まで一貫して担当することが可能です。常に最新のトレンドと技術を学び、最高のクオリティを提供します。
+            </p>
+            <div style="display: flex; gap: 2rem;">
+                <div>
+                    <h3 style="font-size: 2rem; color: var(--accent-primary);">5+</h3>
+                    <span style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="about_exp_years">Years
+                        Experience</span>
+                </div>
+                <div>
+                    <h3 style="font-size: 2rem; color: var(--accent-primary);">30+</h3>
+                    <span style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="about_exp_projects">Projects
+                        Done</span>
+                </div>
+            </div>
+        </div>
+        <div
+            style="flex: 1; height: 400px; background: #EBE3D5; border-radius: 20px; position: relative; overflow: hidden;">
+            <!-- Dummy Profile Image Placeholder -->
+            <div
+                style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 5rem; color: rgba(255,255,255,0.8);">
+                PHOTO
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="works">
+        <div class="container">
+            <h2 class="section-title" data-i18n="works_title">Selected Works</h2>
+            <div class="works-grid">
+                <!-- Project 1 -->
+                <article class="work-card">
+                    <div class="work-image" data-img-name="fashion">
+                        <div class="work-image-placeholder">Fashion</div>
+                    </div>
+                    <div class="work-info">
+                        <span class="work-cat" data-i18n="work1_cat">E-Commerce</span>
+                        <h3 class="work-title" data-i18n="work1_title">Lumina Apparel</h3>
+                        <p class="work-desc" data-i18n="work1_desc">ミニマルで洗練されたアパレルブランドのECサイトリニューアル。CVRを150%向上させました。</p>
+                        <a href="#" class="work-link" data-i18n="view_case1">View Case Study →</a>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="work-card">
+                    <div class="work-image" data-img-name="tech">
+                        <div class="work-image-placeholder">SaaS</div>
+                    </div>
+                    <div class="work-info">
+                        <span class="work-cat" data-i18n="work2_cat">SaaS Platform</span>
+                        <h3 class="work-title" data-i18n="work2_title">Nexus Analytics</h3>
+                        <p class="work-desc" data-i18n="work2_desc">複雑なデータを直感的に理解できるダッシュボードデザイン。ダークモード最適化。</p>
+                        <a href="#" class="work-link" data-i18n="view_case2">View Case Study →</a>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="work-card">
+                    <div class="work-image" data-img-name="cafe">
+                        <div class="work-image-placeholder">Cafe</div>
+                    </div>
+                    <div class="work-info">
+                        <span class="work-cat" data-i18n="work3_cat">Brand Site</span>
+                        <h3 class="work-title" data-i18n="work3_title">Komorebi Coffee</h3>
+                        <p class="work-desc" data-i18n="work3_desc">温かみのあるブランディングサイト。写真撮影からディレクションまで担当。</p>
+                        <a href="#" class="work-link" data-i18n="view_case3">View Case Study →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title" data-i18n="services_title">My Services</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-icon">❖</div>
+                    <h3 data-i18n="service1_title">UI/UX Design</h3>
+                    <p data-i18n="service1_desc">ユーザー心理に基づいた使いやすく美しいインターフェースを設計します。Figmaを使用したプロトタイピングも。</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">code</div>
+                    <h3 data-i18n="service2_title">Web Development</h3>
+                    <p data-i18n="service2_desc">HTML/CSS/JSを用いたセマンティックでパフォーマンスの高いコーディング。モダンなアニメーション実装。</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">lightbulb</div>
+                    <h3 data-i18n="service3_title">Branding</h3>
+                    <p data-i18n="service3_desc">ロゴ制作からカラーパレットの選定まで、ブランドの世界観を構築するお手伝いをします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-i18n="contact_title">Get in Touch</h2>
+            <p style="color: var(--text-muted); margin-bottom: 3rem;" data-i18n="contact_desc">
+                プロジェクトのご相談やご質問など、お気軽にお問い合わせください。<br>
+                通常2営業日以内に返信いたします。
+            </p>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('contact_alert');">
+                <div class="form-group">
+                    <label class="form-label" data-i18n="form_name">Name</label>
+                    <input type="text" class="form-input" placeholder="Your Name"
+                        data-i18n-placeholder="placeholder_name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" data-i18n="form_email">Email</label>
+                    <input type="email" class="form-input" placeholder="your@email.com"
+                        data-i18n-placeholder="placeholder_email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" data-i18n="form_message">Message</label>
+                    <textarea class="form-textarea" placeholder="Tell me about your project..."
+                        data-i18n-placeholder="placeholder_message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="form_btn">Send
+                    Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Aura Design. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

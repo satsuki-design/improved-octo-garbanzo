@@ -1,0 +1,696 @@
+/* 
+ * DESIGN SYSTEM & VARIABLES 
+ * Theme: Natural & Feminine
+ */
+:root {
+    --bg-color: #FAF9F6;
+    /* Off White / Linen */
+    --surface-color: #FFFFFF;
+    /* Pure White */
+    --text-main: #5C5552;
+    /* Warm Charcoal */
+    --text-muted: #9A9491;
+    /* Greige */
+
+    --accent-primary: #D4A5A5;
+    /* Dusty Pink */
+    --accent-secondary: #9CAF88;
+    /* Sage Green */
+    --accent-glow: #F2EBE3;
+    /* Warm Sand */
+
+    --font-en: 'Outfit', sans-serif;
+    --font-jp: 'Zen Kaku Gothic New', sans-serif;
+
+    --container-width: 1200px;
+    --header-height: 80px;
+
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+    --shadow-soft: 0 10px 40px -10px rgba(92, 85, 82, 0.08);
+    --border-light: 1px solid rgba(92, 85, 82, 0.08);
+}
+
+/* 
+ * RESET & BASE STYLES 
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-en), var(--font-jp);
+    line-height: 1.7;
+    /* Slightly increased for elegance */
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* 
+ * UTILITIES 
+ */
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+    /* Removed gradient text for cleaner look */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s var(--ease-out-expo);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 40%;
+    height: 12px;
+    background: var(--accent-glow);
+    z-index: -1;
+    border-radius: 4px;
+    opacity: 0.6;
+}
+
+.section-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    border-radius: 50px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: all 0.4s var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: var(--border-light);
+}
+
+.btn-primary {
+    background: var(--accent-primary);
+    color: #fff;
+    border: none;
+    box-shadow: 0 5px 15px rgba(212, 165, 165, 0.4);
+}
+
+.btn-primary:hover {
+    background: #c5898f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 165, 165, 0.5);
+}
+
+/* 
+ * BACKGROUND ELEMENTS 
+ */
+.bg-gradient-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    /* Slightly less blur for definition */
+    z-index: 0;
+    opacity: 0.5;
+    /* Increased opacity for softer look */
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    /* Better blending on light bg */
+}
+
+.orb-1 {
+    width: 600px;
+    height: 600px;
+    background: #E8D3D3;
+    /* Soft Pink */
+    top: -150px;
+    left: -100px;
+    animation: float 25s infinite alternate ease-in-out;
+}
+
+.orb-2 {
+    width: 500px;
+    height: 500px;
+    background: #D8E0D5;
+    /* Soft Green */
+    bottom: -100px;
+    right: -100px;
+    animation: float 20s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(40px, 40px);
+    }
+}
+
+/* 
+ * HEADER 
+ */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    transition: background 0.4s ease, border-bottom 0.4s ease, box-shadow 0.4s ease;
+}
+
+header.scrolled {
+    background: rgba(250, 249, 246, 0.9);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.03);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+}
+
+.logo span {
+    color: var(--accent-primary);
+}
+
+nav ul {
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--accent-primary);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-secondary);
+    /* Green accent for nav */
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.lang-switch {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.lang-switch span {
+    transition: color 0.3s ease;
+}
+
+.lang-switch span:hover {
+    color: var(--text-main);
+}
+
+.lang-switch span.active {
+    color: var(--accent-primary);
+    font-weight: 700;
+}
+
+.mobile-menu-btn {
+    display: none;
+    color: var(--text-main);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* 
+ * HERO SECTION 
+ */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: var(--header-height);
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 5.5rem;
+    line-height: 1.1;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    letter-spacing: -0.04em;
+    color: var(--text-main);
+}
+
+.hero h1 b {
+    font-weight: 700;
+    display: block;
+    color: var(--accent-primary);
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 3.5rem;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.hero-visual {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* Clean background to let orbs shine */
+    background: transparent;
+}
+
+/* Animated Grain - Softer overlay */
+.hero-visual::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    opacity: 0.6;
+    mix-blend-mode: overlay;
+}
+
+/* 
+ * WORKS SECTION 
+ */
+.works {
+    padding: 10rem 0;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3.5rem;
+}
+
+.work-card {
+    background: var(--surface-color);
+    border-radius: 12px;
+    /* More subtle radius */
+    overflow: hidden;
+    border: var(--border-light);
+    transition: all 0.5s var(--ease-out-expo);
+    position: relative;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+}
+
+.work-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(92, 85, 82, 0.12);
+}
+
+.work-image {
+    height: 280px;
+    background: #F0EFEA;
+    /* Light grey placeholder bg */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CSS Art for Thumbnails - Adjusted for light theme */
+.work-image-placeholder {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s var(--ease-out-expo);
+}
+
+.work-card:hover .work-image-placeholder {
+    transform: scale(1.05);
+}
+
+/* Fashion Pattern */
+.work-image[data-img-name="fashion"] .work-image-placeholder {
+    background:
+        radial-gradient(circle at 100% 0, rgba(212, 165, 165, 0.15) 20%, transparent 20%),
+        radial-gradient(circle at 0 100%, rgba(156, 175, 136, 0.15) 20%, transparent 20%);
+    background-color: #F8F5F2;
+}
+
+.work-image[data-img-name="fashion"] .work-image-placeholder::after {
+    content: 'Aa';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6rem;
+    font-family: serif;
+    font-style: italic;
+    color: rgba(212, 165, 165, 0.3);
+    /* Dusty Pink text */
+}
+
+/* Tech Pattern - Softened */
+.work-image[data-img-name="tech"] .work-image-placeholder {
+    background-image:
+        linear-gradient(rgba(156, 175, 136, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(156, 175, 136, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-color: #FCFCFA;
+}
+
+.work-image[data-img-name="tech"] .work-image-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border: 2px solid rgba(156, 175, 136, 0.5);
+    /* Sage Green border */
+    border-radius: 50%;
+}
+
+/* Cafe Pattern */
+.work-image[data-img-name="cafe"] .work-image-placeholder {
+    background-color: #FDFBF7;
+}
+
+.work-image[data-img-name="cafe"] .work-image-placeholder::after {
+    content: '☕';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    opacity: 0.3;
+    filter: invert(0.3) sepia(0.2);
+    /* Adjust emoji color to match */
+}
+
+.work-info {
+    padding: 2.5rem;
+}
+
+.work-cat {
+    font-size: 0.75rem;
+    color: var(--accent-secondary);
+    /* Sage Green */
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.8rem;
+    display: block;
+    font-weight: 600;
+}
+
+.work-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.work-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.8rem;
+    line-height: 1.7;
+}
+
+.work-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-primary);
+}
+
+.work-link:hover {
+    color: #c5898f;
+}
+
+/* 
+ * SERVICES SECTION 
+ */
+.services {
+    padding: 10rem 0;
+    background: #FFFFFF;
+    /* Pure white background */
+}
+
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 5rem;
+}
+
+.service-item {
+    padding: 3.5rem 2.5rem;
+    border: var(--border-light);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: var(--bg-color);
+    /* Slight contrast */
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+    background: #fff;
+    box-shadow: var(--shadow-soft);
+}
+
+.service-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-primary);
+    /* Dusty Pink icons */
+}
+
+.service-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.service-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* 
+ * CONTACT SECTION 
+ */
+.contact {
+    padding: 10rem 0;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background: var(--surface-color);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--bg-color);
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    color: var(--text-main);
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(212, 165, 165, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* 
+ * FOOTER 
+ */
+footer {
+    padding: 4rem 0;
+    border-top: var(--border-light);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    background: #fff;
+}
+
+/* 
+ * ANIMATIONS 
+ */
+.reveal-text {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    /* Fix alignment */
+}
+
+.reveal-text span {
+    display: inline-block;
+    transform: translateY(100%);
+    animation: revealUp 1s var(--ease-out-expo) forwards;
+}
+
+@keyframes revealUp {
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Additional About Section Styling Override */
+#about {
+    background: transparent;
+}
+
+/* Styling the dummy photo box in index.html via CSS if possible, but it's inline style. 
+   We should probably update index.html too to remove inline styles eventually, but 
+   for now assuming usage of existing classes or we rely on inheritance where possible.
+   But that specific div has inline background: linear-gradient... */
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-list {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}
